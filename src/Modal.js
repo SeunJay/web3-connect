@@ -14,7 +14,7 @@ import { Image } from "@chakra-ui/react";
 import { useWeb3React } from "@web3-react/core";
 import { connectors } from "./connectors";
 
-const Modal = ({ isOpen, closeModal }) => {
+const SelectWalletModal = ({ isOpen, closeModal }) => {
   const { activate } = useWeb3React();
 
   const setProvider = (type) => {
@@ -102,4 +102,4 @@ const Modal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default Modal;
+export default SelectWalletModal;
