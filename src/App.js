@@ -33,7 +33,7 @@ function App() {
   useEffect(() => {
     const provider = window.localStorage.getItem("provider");
     if (provider) activate(connectors[provider]);
-  }, []);
+  }, [activate]);
 
   const handleNetwork = (e) => {
     const id = e.target.value;
@@ -42,7 +42,7 @@ function App() {
 
   const handleInput = (e) => {
     const msg = e.target.value;
-    setMessage(Number(msg));
+    setMessage(msg);
   };
 
   const switchNetwork = async () => {
@@ -72,6 +72,7 @@ function App() {
         method: "personal_sign",
         params: [message, account],
       });
+
       setSignedMessage(message);
       setSignature(signature);
     } catch (error) {
@@ -104,6 +105,7 @@ function App() {
     refreshState();
     deactivate();
   };
+
   return (
     <>
       <Text position="absolute" top={0} right="15px">
@@ -141,7 +143,12 @@ function App() {
             <Button onClick={disconnect}>Disconnect</Button>
           )}
         </HStack>
-        <VStack justifyContent="center" alignItems="center" padding="10px 0">
+        <VStack
+          justifyContent="center"
+          alignItems="center"
+          margin="0"
+          padding="0 0"
+        >
           <HStack>
             <Text>{`Connection Status: `}</Text>
             {active ? (
@@ -158,7 +165,7 @@ function App() {
         </VStack>
       </VStack>
       {active && (
-        <HStack justifyContent="flex-start" alignItems="flex-start">
+        <HStack justifyContent="center" alignItems="center">
           <Box
             maxW="sm"
             borderWidth="1px"
@@ -173,6 +180,7 @@ function App() {
               <Select placeholder="Select network" onChange={handleNetwork}>
                 <option value="3">Ropsten</option>
                 <option value="4">Rinkeby</option>
+                <option value="5">Goerli</option>
                 <option value="42">Kovan</option>
                 <option value="1666600000">Harmony</option>
                 <option value="42220">Celo</option>

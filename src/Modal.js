@@ -14,6 +14,10 @@ import { Image } from "@chakra-ui/react";
 import { useWeb3React } from "@web3-react/core";
 import { connectors } from "./connectors";
 
+import coinbaseWallet from "../src/assets/6-WY-cbw.png";
+import walletConnect from "../src/assets/6MMr-wc.png";
+import metamask from "../src/assets/q4z6-mm.png";
+
 const SelectWalletModal = ({ isOpen, closeModal }) => {
   const { activate } = useWeb3React();
 
@@ -44,7 +48,7 @@ const SelectWalletModal = ({ isOpen, closeModal }) => {
             >
               <HStack w="100%" justifyContent={"center"}>
                 <Image
-                  src="../public/assets/6-WY-cbw.png"
+                  src={coinbaseWallet}
                   alt="Coinbase Wallet Logo"
                   width={25}
                   height={25}
@@ -65,7 +69,7 @@ const SelectWalletModal = ({ isOpen, closeModal }) => {
             >
               <HStack w="100%" justifyContent={"center"}>
                 <Image
-                  src="../public/assets/6MMr-wc.png"
+                  src={walletConnect}
                   alt="Wallet Connect Logo"
                   width={25}
                   height={25}
@@ -86,7 +90,7 @@ const SelectWalletModal = ({ isOpen, closeModal }) => {
             >
               <HStack w="100%" justifyContent={"center"}>
                 <Image
-                  src="../public/assets/q4z6-mm.png"
+                  src={metamask}
                   alt="Metamask Logo"
                   width={25}
                   height={25}
